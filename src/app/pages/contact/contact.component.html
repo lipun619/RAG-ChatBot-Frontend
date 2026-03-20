@@ -1,0 +1,181 @@
+<section class="min-h-screen pt-24 pb-20">
+  <div class="max-w-3xl mx-auto px-6 md:px-10">
+    <!-- Header -->
+    <div appFadeIn class="mb-12">
+      <p class="text-xs tracking-[0.3em] uppercase mb-4" style="color: var(--c-muted);">
+        &gt; Contact
+      </p>
+      <h1 class="text-3xl md:text-5xl font-bold tracking-tight" style="color: var(--c-text);">
+        Get In Touch
+      </h1>
+    </div>
+
+    <hr class="mb-12" style="border-color: var(--c-border);" />
+
+    <!-- Contact Form -->
+    <form
+      appFadeIn
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="space-y-6"
+      novalidate
+    >
+      <!-- Name -->
+      <div class="form-animate">
+        <label
+          for="name"
+          class="block text-xs tracking-[0.2em] uppercase mb-2"
+          style="color: var(--c-muted);"
+        >
+          Name
+        </label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          autocomplete="name"
+          class="w-full bg-transparent border px-4 py-3 text-sm focus:outline-none transition-colors duration-200 font-[inherit]"
+          style="border-color: var(--c-border); color: var(--c-text);"
+          placeholder="Your name"
+        />
+        @if (
+          contactForm.get('name')?.invalid &&
+          contactForm.get('name')?.touched
+        ) {
+          <p class="text-red-400 text-xs mt-1">Name is required.</p>
+        }
+      </div>
+
+      <!-- Email -->
+      <div class="form-animate">
+        <label
+          for="email"
+          class="block text-xs tracking-[0.2em] uppercase mb-2"
+          style="color: var(--c-muted);"
+        >
+          Email
+        </label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          class="w-full bg-transparent border px-4 py-3 text-sm focus:outline-none transition-colors duration-200 font-[inherit]"
+          style="border-color: var(--c-border); color: var(--c-text);"
+          placeholder="your@email.com"
+        />
+        @if (
+          contactForm.get('email')?.invalid &&
+          contactForm.get('email')?.touched
+        ) {
+          <p class="text-red-400 text-xs mt-1">
+            Please enter a valid email address.
+          </p>
+        }
+      </div>
+
+      <!-- Message -->
+      <div class="form-animate">
+        <label
+          for="message"
+          class="block text-xs tracking-[0.2em] uppercase mb-2"
+          style="color: var(--c-muted);"
+        >
+          Message
+        </label>
+        <textarea
+          id="message"
+          formControlName="message"
+          rows="6"
+          class="w-full bg-transparent border px-4 py-3 text-sm focus:outline-none transition-colors duration-200 font-[inherit] resize-vertical"
+          style="border-color: var(--c-border); color: var(--c-text);"
+          placeholder="Your message..."
+        ></textarea>
+        @if (
+          contactForm.get('message')?.invalid &&
+          contactForm.get('message')?.touched
+        ) {
+          <p class="text-red-400 text-xs mt-1">Message is required.</p>
+        }
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-animate">
+        <button
+          type="submit"
+          [disabled]="status() === 'sending'"
+          class="send-btn relative overflow-hidden border px-8 py-3 text-sm tracking-wider uppercase transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          style="border-color: var(--c-border); color: var(--c-text);"
+        >
+          <!-- Pixel overlay -->
+          <span class="pixel-overlay"></span>
+          @switch (status()) {
+            @case ('sending') {
+              Sending...
+            }
+            @case ('success') {
+              Sent ✓
+            }
+            @default {
+              &gt; Send_
+            }
+          }
+        </button>
+      </div>
+
+      <!-- Status Message -->
+      @if (status() === 'success') {
+        <p class="form-animate text-green-400 text-sm">
+          &gt; Message sent successfully. I'll get back to you soon.
+        </p>
+      }
+      @if (status() === 'error') {
+        <p class="form-animate text-red-400 text-sm">
+          &gt; Failed to send message. Please try again or reach out directly.
+        </p>
+      }
+    </form>
+
+    <hr class="my-12" style="border-color: var(--c-border);" />
+
+    <!-- Social Links -->
+    <div appFadeIn>
+      <p class="text-xs tracking-[0.3em] uppercase mb-6" style="color: var(--c-muted);">
+        &gt; Connect
+      </p>
+      <div class="flex items-center gap-6">
+        <a
+          href="https://github.com/lipun619"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub Profile"
+          class="transition-colors duration-200"
+          style="color: var(--c-muted);"
+        >
+          <ng-icon name="simpleGithub" size="24" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/lipunpatel"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn Profile"
+          class="transition-colors duration-200"
+          style="color: var(--c-muted);"
+        >
+          <ng-icon name="simpleLinkedin" size="24" />
+        </a>
+        <a
+          href="https://www.example.com/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Download Resume"
+          class="transition-colors duration-200 flex items-center gap-2"
+          style="color: var(--c-muted);"
+        >
+          <ng-icon name="heroArrowDownTray" size="24" />
+          <span class="text-xs tracking-wider uppercase">Resume</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Shared pixel background layer */
+.pixel-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: background-color 0.3s ease;
+
+  & + * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Home */
+.section-home {
+  background-color: var(--section-home-bg);
+  transition: background-color 0.3s ease;
+}
+
+.pixel-bg--home {
+  background-image: radial-gradient(circle, var(--pixel-color) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+/* About */
+.section-about {
+  background-color: var(--section-about-bg);
+  transition: background-color 0.3s ease;
+}
+
+.pixel-bg--about {
+  background-image: radial-gradient(circle, var(--pixel-color) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+/* Contact */
+.section-contact {
+  background-color: var(--section-contact-bg);
+  transition: background-color 0.3s ease;
+}
+
+.pixel-bg--contact {
+  background-image: radial-gradient(circle, var(--pixel-color) 1px, transparent 1px);
+  background-size: 6px 6px;
+}

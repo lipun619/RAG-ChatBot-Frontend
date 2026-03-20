@@ -1,0 +1,31 @@
+<!-- Skip to content -->
+<a href="#home"
+  class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:font-mono">
+  Skip to content
+</a>
+
+<app-navbar />
+
+<main>
+  <!-- ═══ HOME ═══ -->
+  <section id="home" class="section-home relative">
+    <div class="pixel-bg pixel-bg--home" aria-hidden="true"></div>
+    <app-home />
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about" class="section-about relative" appFadeIn>
+    <div class="pixel-bg pixel-bg--about" aria-hidden="true"></div>
+    <app-about />
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" class="section-contact relative" appFadeIn>
+    <div class="pixel-bg pixel-bg--contact" aria-hidden="true"></div>
+    <app-contact />
+  </section>
+</main>
+
+<ai-chat-widget apiUrl="https://rag-chatbot-backend-920004489340.asia-south1.run.app/api/chat/sync" title="Ask Lipun AI"
+  placeholder="Ask about my experience..." welcomeMessage="Hello! Ask me anything about Lipun."
+  [suggestedQuestions]="['Who is Lipun ?', 'What technologies do you use ?', 'Tell me about your experience']" />

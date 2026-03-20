@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+
+.mag-letter {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+
+  &.space {
+    width: 0.25em;
+  }
+}
+
+.mag-image {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+}
+
+.cursor-seq {
+  opacity: 0;
+  animation: cursor-seq-blink 1.8s infinite;
+}
+
+.cursor-seq--1 {
+  animation-delay: 0s;
+}
+
+.cursor-seq--2 {
+  animation-delay: 0.6s;
+}
+
+.cursor-seq--3 {
+  animation-delay: 1.2s;
+}
+
+@keyframes cursor-seq-blink {
+  0%, 10% {
+    opacity: 0;
+  }
+  15%, 30% {
+    opacity: 1;
+  }
+  35%, 100% {
+    opacity: 0;
+  }
+}

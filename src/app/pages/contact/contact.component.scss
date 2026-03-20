@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+.send-btn {
+  position: relative;
+  background: transparent;
+
+  .pixel-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, var(--c-text) 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    background: var(--c-text);
+    color: var(--c-bg) !important;
+    border-color: var(--c-text) !important;
+
+    .pixel-overlay {
+      background-image: radial-gradient(circle, var(--c-bg) 1px, transparent 1px);
+      background-size: 4px 4px;
+      opacity: 0.25;
+    }
+  }
+}

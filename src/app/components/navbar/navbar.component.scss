@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+.cursor-seq {
+  opacity: 0;
+  animation: cursor-seq-blink 1.8s infinite;
+}
+
+.cursor-seq--1 {
+  animation-delay: 0s;
+}
+
+.cursor-seq--2 {
+  animation-delay: 0.6s;
+}
+
+.cursor-seq--3 {
+  animation-delay: 1.2s;
+}
+
+@keyframes cursor-seq-blink {
+  0%, 10% {
+    opacity: 0;
+  }
+  15%, 30% {
+    opacity: 1;
+  }
+  35%, 100% {
+    opacity: 0;
+  }
+}
