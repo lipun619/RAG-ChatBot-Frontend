@@ -4,7 +4,7 @@ A modern, responsive developer portfolio built with **Angular 19** featuring an 
 
 ## Live Demo
 
-> _Add your deployed URL here after deployment_
+> http://lipunpatel.in
 
 ---
 

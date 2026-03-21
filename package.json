@@ -16,7 +16,7 @@
     "@angular/forms": "^19.2.0",
     "@angular/platform-browser": "^19.2.0",
     "@angular/router": "^19.2.0",
-    "@caplipun/ai-chat-widget": "^0.0.1",
+    "@caplipun/ai-chat-widget": "^0.0.3",
     "@emailjs/browser": "^4.4.1",
     "@ng-icons/core": "^29.0.0",
     "@ng-icons/heroicons": "^29.0.0",
